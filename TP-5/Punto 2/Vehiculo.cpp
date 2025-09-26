@@ -16,3 +16,4 @@ void Vehiculo::listarInfo()
     cout << "Patente: " << Vehiculo::getPatente() << endl;
     cout << "Titular: " << Vehiculo::getTitular() << endl;
 }
+
