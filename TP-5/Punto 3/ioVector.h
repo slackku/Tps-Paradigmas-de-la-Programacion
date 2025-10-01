@@ -5,7 +5,7 @@
 #include "Vector.h"
 using namespace std;
 
-ostream &operator<<(ostream &salida, Vector V)
+ostream &operator<<(ostream &salida, Vector &V)
 {
     salida << "[";
     for (unsigned int i = 0; i < V.capacidad(); i++)
@@ -20,7 +20,7 @@ ostream &operator<<(ostream &salida, Vector V)
     return salida;
 }
 
-istream &operator>>(istream &entrada, Vector V)
+istream &operator>>(istream &entrada, Vector &V)
 {
     item dato;
     for (int i = 1; i <= V.capacidad(); i++)

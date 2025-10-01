@@ -23,6 +23,6 @@ public:
     bool redimensionar(unsigned int n);
 };
 
-bool operator==(Vector V1, Vector V2);
+bool operator==(Vector &V1, Vector &V2);
 
 #endif

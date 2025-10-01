@@ -4,8 +4,6 @@
       "name": "Win32",
       "includePath": [
         "${workspaceFolder}",
-        "${workspaceFolder}/Models",
-        "${workspaceFolder}/Schemes",
         "C:/mingw64/include",
         "C:/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++"
       ],
