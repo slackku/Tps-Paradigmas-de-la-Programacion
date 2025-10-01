@@ -4,13 +4,16 @@
 using namespace std;
 class Vehiculo
 {
-private:
+protected:
     string patente;
     string marca;
     string titular;
     double precioBase;
 
 public:
+    Vehiculo() {}
+    Vehiculo(string p, string m, string t, double pb) : patente(p), marca(m), titular(t), precioBase(pb) {}
+
     void listarInfo();
     string getPatente();
     string getTitular();

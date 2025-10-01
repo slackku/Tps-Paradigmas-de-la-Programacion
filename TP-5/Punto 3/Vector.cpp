@@ -20,7 +20,7 @@ bool Vector::reservarMemoria(unsigned int n)
     return isReserved;
 }
 
-void Vector::crearVector(unsigned int n = 10)
+void Vector::crearVector(unsigned int n)
 {
     Vector::elementos = NULL;
     bool isReserved = Vector::reservarMemoria(n);

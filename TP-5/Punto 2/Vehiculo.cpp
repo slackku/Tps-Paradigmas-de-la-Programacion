@@ -3,17 +3,18 @@
 using namespace std;
 string Vehiculo::getPatente()
 {
-    return Vehiculo::patente;
+    return this->patente;
 }
 
 string Vehiculo::getTitular()
 {
-    return Vehiculo::titular;
+    return this->titular;
 }
 
 void Vehiculo::listarInfo()
 {
-    cout << "Patente: " << Vehiculo::getPatente() << endl;
-    cout << "Titular: " << Vehiculo::getTitular() << endl;
+    cout << "Patente: " << this->getPatente() << endl;
+    cout << "Titular: " << this->getTitular() << endl;
 }
+
 

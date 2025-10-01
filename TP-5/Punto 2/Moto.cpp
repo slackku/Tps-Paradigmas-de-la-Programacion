@@ -5,15 +5,14 @@ using namespace std;
 double Moto::costoAlquiler(int precioDia, int diasAlquilados)
 {
     double costoAlquiler = precioDia;
-    if (Moto::cilindrada == "medio")
+    if (this->cilindrada == "medio")
         costoAlquiler += (costoAlquiler * 0.25);
-    if (Moto::cilindrada == "alto")
+    if (this->cilindrada == "alto")
         costoAlquiler += (costoAlquiler * 0.50);
-    costoAlquiler *= diasAlquilados;
-    return costoAlquiler;
+    return costoAlquiler * diasAlquilados;
 }
 
 void Moto::mostrarCilindrada()
 {
-    cout << "Cilindrada: " << Moto::cilindrada << endl;
+    cout << "Cilindrada: " << this->cilindrada << endl;
 }
