@@ -1,0 +1,2 @@
+Respuesta 2) c-
+La instancia de la clase generada con new no se borra al finalizar el programa, pues fue instanciada de forma dinamica. Lo que nos indica la clara necesidad de declarar un delete de la misma para no dejar esos datos sueltos por el aire. 
