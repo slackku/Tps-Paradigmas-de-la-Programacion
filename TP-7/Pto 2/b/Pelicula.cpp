@@ -43,9 +43,9 @@ int Pelicula::getAutonumerico(){
 
 void Pelicula::escribirBiografiaDirector(){
 	if(this->director != nullptr){
-		cout<<"Nombre: "<<director->getNombre()<<endl;
-		cout<<"Edad: "<<director->getEdad()<<endl;
-		cout<<"Biografia: "<<director->getBio()<<endl;;
+		cout<<"Nombre: "<<director->GetNombre()<<endl;
+		cout<<"Edad: "<<director->GetEdad()<<endl;
+		cout<<"Biografia: "<<director->GetBio()<<endl;;
 	}
 }
 
