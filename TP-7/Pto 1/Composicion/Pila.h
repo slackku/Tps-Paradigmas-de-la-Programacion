@@ -5,9 +5,10 @@
 #ifndef PILA_H_
 #define PILA_H_
 #include <iostream>
+#include "Producto.h"
 
 using namespace std;
-typedef int item;
+typedef Producto item;
 const int indefinido=-999;
 
 class Pila{
@@ -19,8 +20,8 @@ class Pila{
  public:
 	Pila(int dim = 10);
 
-	void push(int item);
-	item  top();
+	void push(int codigo, string desc, double price);
+	item top();
 	void pop();
 	bool esPilavacia();
 	void escribir();
@@ -29,9 +30,3 @@ class Pila{
 };
 
 #endif  //PILA_H_
-
-
-
-
-
-
