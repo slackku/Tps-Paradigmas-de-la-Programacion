@@ -18,6 +18,5 @@ int main() {
     p1.escribir();
     x = p1.top();
     x->listarInformacion();
-    cout << "lal" << endl;
     return 0;
 }
