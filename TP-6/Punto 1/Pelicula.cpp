@@ -1,8 +1,20 @@
 #include "Pelicula.h"
 
-int Pelicula::getAutoNumerico() const
+int Pelicula::autoNumerico = 0;
+
+Pelicula::Pelicula(string t, string d, bool e, float p, Tipo tP)
 {
-    return this->autoNumerico;
+    this->codigo = ++autoNumerico;
+    this->titulo = t;
+    this->director = d;
+    this->estreno = e;
+    this->precioBase = p;
+    this->tipoPelicula = tP;
+}
+
+int Pelicula::getAutoNumerico()
+{
+    return autoNumerico;
 }
 
 void Pelicula::setDirector(string dir)
@@ -12,12 +24,11 @@ void Pelicula::setDirector(string dir)
 
 void Pelicula::listarInformacion() const
 {
-    cout << "AN: " << getAutoNumerico() << endl;
     cout << "Codigo: " << this->codigo << endl;
     cout << "Titulo: " << this->titulo << endl;
     cout << "Director: " << this->director << endl;
     cout << "Estado: " << (this->estreno ? "Estrenada" : "Por estrenar") << endl;
-    cout << "Tipo: " << (this->tipoPelicula == N ? "Normal" : "Infantil") << endl;
+    cout << "Tipo: " << (this->tipoPelicula == N ? "Nacional" : "Internacional") << endl;
 }
 
 float Pelicula::calcularCosto()
@@ -35,13 +46,11 @@ Pelicula::~Pelicula()
     cout << "Objeto destruido de codigo: " << codigo << endl;
 }
 
-Pelicula::Pelicula(const Pelicula &p)
-    : autoNumerico(p.autoNumerico),
-      codigo(p.codigo),
-      titulo(p.titulo),
-      director(p.director),
-      estreno(p.estreno),
-      precioBase(p.precioBase),
-      tipoPelicula(p.tipoPelicula)
+Pelicula::Pelicula(const Pelicula &p) : codigo(p.codigo),
+                                        titulo(p.titulo),
+                                        director(p.director),
+                                        estreno(p.estreno),
+                                        precioBase(p.precioBase),
+                                        tipoPelicula(p.tipoPelicula)
 {
 }

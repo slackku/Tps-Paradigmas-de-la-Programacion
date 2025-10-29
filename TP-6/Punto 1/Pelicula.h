@@ -1,3 +1,6 @@
+#ifndef PELICULA_H
+#define PELICULA_H
+
 #include <iostream>
 using namespace std;
 class Pelicula
@@ -10,7 +13,7 @@ public:
     };
 
 private:
-    int autoNumerico;
+    static int autoNumerico;
     int codigo;
     string titulo;
     string director;
@@ -19,15 +22,14 @@ private:
     Tipo tipoPelicula;
 
 public:
-    Pelicula() : autoNumerico(0), codigo(0), titulo("Pelicula"),
-                 director("Director"), estreno(false), precioBase(0), tipoPelicula(N) {}
-    Pelicula(int a, int c, string t, string d, bool e, float p, Tipo tP)
-        : autoNumerico(a), codigo(c), titulo(t), director(d),
-          estreno(e), precioBase(p), tipoPelicula(tP) {};
+    Pelicula() : codigo(0), titulo(""), director(""), estreno(false), precioBase(0), tipoPelicula(N) {}
+    Pelicula(string t, string d, bool e, float p, Tipo tP);
     Pelicula(const Pelicula &p);
     ~Pelicula();
-    int getAutoNumerico() const;
+    static int getAutoNumerico();
     void setDirector(string dir);
     void listarInformacion() const;
     float calcularCosto();
 };
+
+#endif

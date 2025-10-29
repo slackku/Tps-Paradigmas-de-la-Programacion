@@ -9,7 +9,7 @@ int main()
     cout << "-------------------------" << endl;
 
     // 2️⃣ Constructor con parámetros
-    Pelicula p2(1, 1, "The Sacred Kingdom", "Naoyuki Ito", true, 4000, Pelicula::N);
+    Pelicula p2("The Sacred Kingdom", "Naoyuki Ito", true, 4000, Pelicula::N);
     cout << "Informacion de p2 (con parametros):" << endl;
     p2.listarInformacion();
     cout << "-------------------------" << endl;
