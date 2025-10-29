@@ -86,13 +86,13 @@ combinarConG f xs ys
     | null xs || null ys = []
     | otherwise = [ f (head xs) y | y <- ys] ++ combinarConG f (tail xs) ys
 --  -ii
--- combinarConPM :: (a -> b -> c) -> [a] -> [b] -> [c]
--- combinarConPM f [] _ = []
--- combinarConPM f _ [] = []
--- combinarConPM f (x:xs) (y:ys) = 
+combinarConPM :: (a -> b -> c) -> [a] -> [b] -> [c]
+combinarConPM f [] _ = []
+combinarConPM f _ [] = []
+combinarConPM f (x:xs) (y:ys) = (f x y) : (combinarConPM f xs ys)
 --  -iii
 combinarConLC :: (a -> b -> c) -> [a] -> [b] -> [c]
-combinarConLC f xs ys = [f x y | x <- xs, y <- ys]
+combinarConLC f xs ys = 2
 
 -- -l
 --  -i
@@ -108,7 +108,7 @@ filtrarListaLC p xs = [x | x <- xs , p x]
 -- -m
 subLista2 [] _ _ = []
 subLista2 ys _ 0 = ys
-subLista2 (y:ys) x n = if(y > x)then subLista2 ys x (n-1) else subLista2 ys x n
+subLista2 (y:ys) x n = if(y > x)then y : (subLista2 ys x (n-1)) else subLista2 ys x (n-1)
 
 -- -n
 insertarLista xs ys n 
@@ -119,7 +119,7 @@ insertarLista xs ys n
 -- Funcion foldl
 -- Forma: foldl f n xs 
 -- f una funcion a aplicar
--- n el valor iniciar a aplicar con la funcion (acumulador)
+-- n el valor inicial a aplicar con la funcion (acumulador)
 -- xs lista para la concatenacion de operaciones
 -- foldl se encarga de realizar una sucesion de operaciones (realizadas por la funcion)
 -- con el valor inicial y los de la lista
