@@ -33,14 +33,9 @@ void Vector::redimensionar(unsigned int n)
     for (unsigned int i = 0; i < n; i++)
     {
         if (i < max)
-        {
-
             elemsRedim[i] = elementos[i];
-        }
         else
-        {
             elemsRedim[i] = indef;
-        }
     }
     item *elemsOld = elementos;
     elementos = elemsRedim;
@@ -104,6 +99,24 @@ Vector::~Vector()
 {
     delete[] this->elementos;
     this->max = 0;
+}
+
+Vector::Vector(Vector &V)
+{
+    this->elementos = new item[V.max];
+    this->max = V.max;
+
+    if (this->elementos)
+    {
+        for (int i = 0; i < this->max; i++)
+        {
+            this->elementos[i] = V.elementos[i];
+        }
+    }
+    else
+    {
+        this->max = 0;
+    }
 }
 
 bool operator==(Vector &V1, Vector &V2)

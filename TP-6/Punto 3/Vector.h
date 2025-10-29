@@ -11,11 +11,12 @@ private:
     int max;
 
 public:
-    Vector( int n = 10);
+    Vector(int n = 10);
+    Vector(Vector &V);
     ~Vector();
-    void insertar(unsigned int p, item x); 
-    unsigned int capacidad();              
-    item &elemento(unsigned int p);        
+    void insertar(unsigned int p, item x);
+    unsigned int capacidad();
+    item &elemento(unsigned int p);
     void borrar(unsigned int p);
     void borrar();
     // Auxiliares

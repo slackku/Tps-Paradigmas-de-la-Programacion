@@ -8,10 +8,10 @@ using namespace std;
 ostream &operator<<(ostream &salida, Vector &V)
 {
     salida << "[";
-    for (unsigned int i = 1; i < V.capacidad(); i++)
+    for (unsigned int i = 1; i <= V.capacidad(); i++)
     {
         (V.elemento(i) == indef) ? salida << "indef" : salida << V.elemento(i);
-        if (i < V.capacidad() - 1)
+        if (i < V.capacidad())
         {
             salida << ", ";
         }
