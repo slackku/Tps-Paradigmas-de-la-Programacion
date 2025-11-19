@@ -9,8 +9,7 @@
 
 using namespace std;
 typedef int item;
-
-class IteradorDeConjunto;
+class Iterador;
 
 class Conjunto{
 	static const int MAX = 10;
@@ -24,7 +23,7 @@ class Conjunto{
 	int cantidad();
 	bool esConjuntoVacio();
 	void escribir();
-	friend class IteradorDeConjunto;
+	friend class Iterador;
 };
 
 item *Conjunto::indefinido = new item;

@@ -1,24 +1,28 @@
 /*
  * Fecha.cpp
- *
- *  Created on: Oct 4, 2010
- *      Author: hector
  */
 
 #include "Fecha.h"
-#include <iostream>
+#include <sstream>
 #include <ctime>
+#include <iostream>
+#include <iomanip>
 
 using namespace std;
 
 Fecha::Fecha() {
 	setFechaActual();
+	//cout<<"Constructor de Fecha "<<dia<<"/"<<mes<<"/"<<anio<<endl;
 }
 Fecha::Fecha(short int d, short int m, short int a) {
 	setFecha(d, m, a);
+	//cout<<"Constructor de Fecha "<<dia<<"/"<<mes<<"/"<<anio<<endl;
+
 }
 Fecha::Fecha(const Fecha &f) :
 	dia(f.dia), mes(f.mes), anio(f.anio) {
+	//cout<<"Constructor de Fecha "<<dia<<"/"<<mes<<"/"<<anio<<endl;
+
 }
 
 void Fecha::setFechaActual(void) {
@@ -85,29 +89,6 @@ bool Fecha::esAnioBisiesto() const {
 	return ((anio % 4 == 0 && anio % 100 != 0) || anio % 400 == 0);
 }
 
-void Fecha::incrementarDia(void) {
-	dia++;
-	if (!esDiaValido()) {
-		dia = 1;
-		incrementarMes();
-	}
-}
-void Fecha::incrementarMes(void) {
-	mes++;
-	if (!esMesValido()) {
-		mes = 1;
-		incrementarAnio();
-	}
-}
-void Fecha::incrementarAnio(void) {
-	anio++;
-}
-void Fecha::sumar(int dias) {
-	while (dias) {
-		incrementarDia();
-		dias--;
-	}
-}
 
 short Fecha::getDia() const {
 	return dia;
@@ -117,4 +98,44 @@ short Fecha::getMes() const {
 }
 short Fecha::getAnio() const {
 	return anio;
+}
+string Fecha::toString() {
+	stringstream flujo;
+	flujo << this->dia <<"/"<< this->mes <<"/"<< this->anio;
+	return string(flujo.str());
+}
+
+
+//Devuelve la diferencia en meses de 2 fechas
+int operator-(Fecha fecha1, Fecha fecha2){
+	int dif = (fecha1.getAnio() - fecha2.getAnio())*12;
+	if( fecha1.getMes()< fecha2.getMes() || (fecha1.getMes()==fecha2.getMes() && fecha1.getDia()< fecha2.getDia()))
+		dif=dif-(fecha2.getMes() - fecha1.getMes());
+	else
+		dif= dif + (fecha1.getMes() - fecha2.getMes());
+	return dif;
+}
+//Devuelve true si fecha1 es menor que fecha2
+bool operator<(Fecha fecha1, Fecha fecha2){
+	bool valor=true;
+	if(fecha1.getAnio() > fecha2.getAnio())
+		valor =false;
+	else
+		if(fecha1.getAnio() == fecha2.getAnio()){
+			if(fecha1.getMes() > fecha2.getMes())
+				valor= false;
+			else
+				if(fecha1.getMes() == fecha2.getMes())
+					if(fecha1.getDia() > fecha2.getDia())
+						valor= false;
+		}
+	return valor;
+
+}
+
+ostream& operator<<(ostream &salida,const Fecha &f) {
+	salida.fill('0');
+	salida << setw(2) << f.getDia() << "/" << setw(2) << f.getMes() << "/" << setw(4)
+			<< f.getAnio();
+	return salida;
 }
